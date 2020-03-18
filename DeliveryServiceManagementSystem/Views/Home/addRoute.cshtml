@@ -1,0 +1,72 @@
+﻿@model DeliveryServiceManagementSystem.Models.Route
+
+@{
+    ViewBag.Title = "addRoute";
+}
+
+<h2>addRoute</h2>
+<div class="row">
+    <div class=" col-7">
+        @using (Html.BeginForm("addRoutes", "Home"))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Route</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.distance, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.distance, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.distance, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.driverId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.driverId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.driverId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                    @Html.LabelFor(model => model.deliverd, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.deliverd)
+                            @Html.ValidationMessageFor(model => model.deliverd, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>*@
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-5" style="background-image:url(../../images/backl.png);background-size:contain;">
+       
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Login")
+  
+
+
+                                <br /><br /><span style="color:gainsboro;font-size:24px">@ViewBag.Message</span><br /><br /><br /><br />
+                           
+</div>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DeliveryServiceManagementSystem.Models.Route>
+@{
+    ViewBag.Title = "DeliverRoute";
+}
+
+<h2>DeliverRoute</h2>
+
+<div class="col-12" style="background-color:rgba(255, 0, 110,0.2) ">
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.distance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.driverId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.deliverd)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.distance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.driverId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.deliverd)
+            </td>
+
+            <td>
+
+                @Html.ActionLink("Mark Delivery", "deliver", new { id = item.Id, driverId = item.driverId})
+            </td>
+        </tr>}
+
+
+    </table>
+</div>

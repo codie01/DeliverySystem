@@ -1,0 +1,176 @@
+﻿@model IEnumerable<DeliveryServiceManagementSystem.Models.Driver>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ExpressDelivery</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Smelter a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+    @*<script>
+            addEventListener("load", function () {
+                setTimeout(hideURLbar, 0);
+            }, false);
+
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+
+        </script>*@
+    <link href="//fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:100,300,400,500,700,800" rel="stylesheet">
+    <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/flexslider.css" rel="stylesheet" type="text/css" media="screen" property="" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/simpleLightbox.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/fontawesome-all.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-12">
+            <header>
+                <div class="header_top" id="home">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="logo text-left">
+                            <h1>
+                                <a class="navbar-brand" href="index.html">
+                                    <i class="fas fa-podcast"></i>
+                                    <br /><br /><br />
+                                </a>
+                            </h1>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+
+                            </span>
+
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        </div>
+
+                    </nav>
+
+                </div>
+            </header>
+        </div>
+    </div>
+    <!--//header-->
+    <!--/banner-->
+    <div class="banner">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="carousel-caption">
+                        
+                            <div class="row">
+
+                                <div class="col-7" style="background-color:rgba(255, 0, 110,0.2) ">
+                                    <table>
+                                        <tr>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Id)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.name)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.surname)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.scheduled)
+                                            </th>
+
+                                            <th>
+
+                                            </th>
+                                        </tr>
+                                        @foreach (var item in Model)
+                                        {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Id)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.surname)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.scheduled)
+                                            </td>
+
+                                            <td>
+
+                                                @Html.ActionLink("Remove Driver", "delDriver", new {id=item.Id, name = item.name, surname = item.surname, scheduled = item.scheduled })
+                                            </td>
+                                        </tr>}
+
+
+                                    </table>
+                                </div>
+                                <div class="col-1"><br /></br/><br /></br/></div>
+                                <div class="col-4" style="background-color:rgba(255, 106, 0,0.2) ">
+                                    <form method="post" action="@Url.Action("Login", "Home")" class="form-inline my-2 my-lg-0 search">
+                                        <div class=" row">
+                                            <h4 style="color:orange">Actions</h4>&#10
+                                            <hr />
+                                            <br /> <br />
+                                            <div class="col-11">
+                                                @Html.ActionLink("Add Driver", "addDriver", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                                            </div>
+
+                                            <br /> <br />
+                                            <div class="col-11">
+                                                @Html.ActionLink("Upload Route", "addRoute", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+                                                <br />
+                                            </div>
+
+                                            <div class="col-11">
+
+                                                @Html.ActionLink("Manage Routes", "DeliverRoute", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+                                            </div>
+                                            
+                                        </div>
+                                    </form>
+                                    <br /> <br />
+                                    
+                                </div>
+
+
+                                <br /><br /><span style="color:gainsboro;font-size:24px">@ViewBag.Message</span><br /><br /><br /><br />
+                            </div>
+                       
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--/model-->
+</body>
+</html>
